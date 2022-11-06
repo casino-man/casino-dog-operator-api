@@ -34,7 +34,7 @@ class CasinoDogOperatorApiServiceProvider extends PackageServiceProvider
 
             $this->app->booted(function () {
                 $kernel = app(\Illuminate\Contracts\Http\Kernel::class);
-                $kernel->pushMiddleware(\Wainwright\CasinoDogOperatorApi\Middleware\PlaygroundGate::class);
+                //$kernel->pushMiddleware(\Wainwright\CasinoDogOperatorApi\Middleware\PlaygroundGate::class);
             });
 
             URL::forceScheme('https');

@@ -12,7 +12,7 @@ class iFrameManager
         if (filter_var($url, FILTER_VALIDATE_URL)) {
             $iframejs = file_get_contents(__DIR__.'/AssetStorage/iframe_manager.js.stub');
             $iframe = str_replace('[URL]', $url, $iframejs);
-            header("Content-Type: application/javascript; charset=utf-8");
+            return response($iframe)->header('Content-Type', 'application/javascript; charset=utf-8');
             echo $iframe;
         } else {
             return '';

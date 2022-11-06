@@ -27,6 +27,7 @@
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png?hash=15cd09e5b530af2">
     <link rel="icon" type="image/png" sizes="192x192" href="/favicon-192x192.png?hash=358cf4ce41bfcd8">
     <link rel="apple-touch-icon" href="/favicon-180x180.png?hash=c7856d9f13e6f1f">
+    <script src="https://code.jquery.com/jquery-3.6.1.slim.min.js"></script>
 </head>
 
 <body>
@@ -51,6 +52,32 @@
                     <div class="c-ld"></div>
                 </div>
                 <br><br>
+	      <ul id="receivedmsg"></ul>
+	<script defer="">
+		var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+var eventer = window[eventMethod];
+var messageEvent = eventMethod === "attachEvent" ? "onmessage" : "message";
+eventer(
+  messageEvent,
+  function (e) {
+    var message = e.data;
+    var received = new Date();
+    var messageText =
+      received.getHours() +
+      ":" +
+      received.getMinutes() +
+      ":" +
+      received.getSeconds() +
+      " - " +
+      JSON.stringify(message);
+
+    $("#receivedmsg").prepend($("<li>").text(messageText));
+
+    console.log(message);
+  },
+  false
+);
+</script>
             </div>
 
         </section>

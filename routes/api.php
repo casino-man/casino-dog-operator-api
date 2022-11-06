@@ -38,11 +38,11 @@ Route::middleware('api', 'throttle:500,1')->prefix('api/')->group(function () {
 });
 
 Route::name('playground')->middleware('api', 'throttle:50,1')->prefix('api/playground/')->group(function () {
-	Route::get('/', [PlaygroundPages::class, 'view_index']);
+    Route::get('/', [PlaygroundPages::class, 'view_index']);
     Route::get('/gameslist', [PlaygroundPages::class, 'view_gameslist']);
-	Route::get('/viewer', [PlaygroundPages::class, 'view_gameframe']);
-	Route::get('/iframe.js', [iFrameManager::class, 'load']);
+    Route::get('/viewer', [PlaygroundPages::class, 'view_gameframe']);
+    Route::get('/iframe.js', [iFrameManager::class, 'load']);
 	//Route::get('/respin-viewer', [ExampleRespinController::class, 'show']);
 	});
 
-Route::middleware('api', 'throttle:25,1')->post('api/playground/toggle_respin', [ExampleRespinController::class, 'toggle_respin']);
+//Route::middleware('api', 'throttle:25,1')->post('api/playground/toggle_respin', [ExampleRespinController::class, 'toggle_respin']);
