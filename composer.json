@@ -1,5 +1,5 @@
 {
-    "name": "wainwright/casino-dog-operator-api-dev",
+    "name": "wainwright/casino-dog-operator-api",
     "description": "Operator API package to communicate with master api.",
     "keywords": [
         "Wainwright",
